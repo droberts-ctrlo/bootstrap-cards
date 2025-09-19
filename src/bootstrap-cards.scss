@@ -1,0 +1,74 @@
+.card {
+    box-shadow: var(--bs-box-shadow);
+
+    .card-header {
+        display: flex;
+        flex-direction: row;
+        align-items: baseline;
+        justify-content: space-between;
+        border: 0;
+
+        h1, h2, h3, h4, h5, h6, p, span, div {
+            padding: 0;
+            margin: 0;
+        }
+    }
+}
+
+@each $color in (primary,
+    secondary,
+    success,
+    danger,
+    warning,
+    info,
+    light,
+    dark) {
+    .card-#{$color} {
+        border-color: var(--bs-#{$color});
+
+        .card-header {
+            background-color: var(--bs-#{$color});
+
+            h1, h2, h3, h4, h5, h6, p, span, div {
+
+                @if $color == primary or $color == secondary or $color == danger or $color == dark {
+                    color: var(--bs-white);
+                } @else {
+                    color: var(--bs-black);
+                }
+            }
+        }
+
+        &.card-inverse {
+            .card-header {
+                @if $color == primary or $color == secondary or $color == danger or $color == dark or $color == success {
+                    background-color: var(--bs-white);
+                } @else {
+                    background-color: var(--bs-black);
+                }
+                color: var(--bs-#{$color});
+                border-bottom: 1px solid var(--bs-#{$color});
+
+                h1, h2, h3, h4, h5, h6, p, span, div {
+                    color: var(--bs-#{$color});
+                }
+            }
+        }
+    }
+}
+
+.card-plain {
+    border: none;
+
+    .card-header {
+        background-color: var(--bs-white);
+
+        h1, h2, h3, h4, h5, h6, p, span, div {
+            color: var(--bs-black);
+        }
+    }
+}
+
+.card:not(:last-of-type) {
+    margin-bottom: 1.2rem;
+}

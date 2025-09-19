@@ -1,0 +1,11 @@
+{
+  "name": "cards",
+  "version": "1.0.0",
+  "license": "MIT",
+  "devDependencies": {
+    "sass": "^1.92.1"
+  },
+  "peerDependencies": {
+    "bootstrap": "^5.3.8"
+  }
+}
